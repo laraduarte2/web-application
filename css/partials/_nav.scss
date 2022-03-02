@@ -1,0 +1,106 @@
+@import "variables";
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+.nav{
+    background-color:$bg-light;
+    height:8vh;
+    align-items:center;
+    align-content:center;
+    justify-items: space-between;
+    font-family: 'Roboto', sans-serif;
+    border: solid 1px $dark;
+
+    &__row{
+        align-items:center;
+        justify-items:center;
+        justify-content:center;
+        align-content:center;
+        width:100%;
+    }
+
+
+    &__colLeft{
+        justify-self:center;
+        align-self:center;
+        margin-left:1rem;
+        padding-top:1rem;
+
+        .nav__title{
+            font-weight:500;
+            font-size: 1.5rem;
+            margin-top:0.5rem;
+        }
+    }
+
+    &__colCenter{
+        justify-self:center;
+        align-self:center;
+        color:black;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        flex-wrap:nowrap !important;
+
+        &--item{
+                padding:1rem;
+                margin:1rem;
+                color:$dark;
+                font-weight:400;
+                &:hover{
+                    color:$md;
+                    text-decoration: none;
+                }
+            }
+    }
+
+
+
+    &__colRight{
+        display:flex;
+        justify-content:right;
+
+
+        .search{
+        width:14rem !important;
+    }
+
+    .nav__iconCont{
+        height:35px;
+        width:35px;
+        display:flex;
+        align-items:center;
+        align-content:center;
+        justify-items:center;
+        justify-content:center;
+        color:$dark;
+        text-decoration: none;
+        
+
+        .bi-cart2{
+            height:100%;
+            width:100%;
+            align-self:center;
+            justify-self:center;
+            display:flex;
+            align-content:center;
+            justify-content:center;
+            align-items:center;
+            &:hover{
+                color:$md;
+                text-decoration:none;
+            }
+            
+        }
+        .bi-person-fill{
+            @extend .bi-cart2;
+            &:hover{
+                color:$md;
+                text-decoration:none;
+            }
+        }
+    }
+}
+}
+
+
+
