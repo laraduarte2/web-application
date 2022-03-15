@@ -1,81 +1,110 @@
 
+
 //Proyecto: Tienda online
 
-alert("Agregar productos al carrito de compras");
 
 
-//Variable global para poder utilizarla dentro del bloque de la función y que su valor se acumule
-var precioFinal=0;
+//clase constructora objetos
 
-function elegirProducto (prod1,prod2,prod3,prod4){
-    //Mostrar productos disponibles
-    alert(`Productos disponibles:
-    producto 1, precio: ${prod1}, 
-    producto 2, precio: ${prod2}, 
-    producto 3, precio: ${prod3}, 
-    producto 4, precio: ${prod4}, `);
+class Producto {
+    constructor(nombre,color,precio,disponible){
+        this.nombre = nombre;
+        this.color = color;
+        this.precio = precio;
+        this.disponible = disponible;
+    }
+    sumarIva(){
+        this.precio = this.precio * 1.21;
+    }
+}
 
-    //Guardar la elección del user en la variable
-    let respuestaUser = parseInt(prompt(`Ingrese el numero de producto que desea comprar`));
+//Declaracion objetos con funcion constructora
 
-    if (respuestaUser==1 || respuestaUser==2 || respuestaUser==3 || respuestaUser==4){
+const producto1 = new Producto("camisa","blanco",525, true);
 
-        console.log(`El user eligió el producto ${respuestaUser}`);
-        alert(`Añadió el producto ${respuestaUser} al carrito`);
+const producto2 = new Producto ("hoodie", "negro", 730, true);
+
+const producto3 = new Producto ("sweater", "verde", 920, true);
+
+const producto4 = new Producto ("remera", "rojo", 600, true);
+
+
+//Array de objetos
+const productos = [producto1, producto2, producto3, producto4];
+
+//Declaracion arrays y variables
+
+const carrito = [];
+
+
+let precioFinal = 0;
+
+
+
+//Función para agregar productos al carrito y sumar precio final
+function añadirProducto (arrayProductos){
+    let productoElegido = prompt("Ingrese el nombre del producto que desea agregar al carrito").toLowerCase();
+    
+    switch(productoElegido){
+        case "camisa":
+            carrito.push(producto1);
+            console.log("Se añadió el producto al carrito, el precio final hasta ahora es: ");
+            precioFinal = precioFinal + producto1.precio;
+            console.log(precioFinal);
+            break;
+        case "hoodie":
+            carrito.push(producto2);
+            console.log("Se añadió el producto al carrito, el precio final hasta ahora es: ");
+            precioFinal = precioFinal + producto2.precio;
+            console.log(precioFinal);
+            break;
+        case "sweater":
+            carrito.push(producto3);
+            console.log("Se añadió el producto al carrito, el precio final hasta ahora es: ");
+            precioFinal = precioFinal + producto3.precio;
+            console.log(precioFinal);
+            break;
+        case "remera":
+            carrito.push(producto4);
+            console.log("Se añadió el producto al carrito, el precio final hasta ahora es: ");
+            precioFinal = precioFinal + producto4.precio;
+            console.log(precioFinal);
+            break;
+    }
+}
+
+
+
+//Interaccion con usuario
+
+let comprobacion = prompt("Agregar productos al carrito de compras. Desea continuar? ingrese Si para continuar");
+
+do {
+    
+    if (comprobacion =="Si" || comprobacion =="si" || comprobacion=="SI"){
+        
+        alert("Los productos se mostrarán a través de la consola");
+
+        console.log("Productos dispobles:")
+
+        for (const Producto of productos){
+            console.log("Nombre: " + Producto.nombre);
+            console.log("Color: " + Producto.color);
+            console.log("Precio: " + Producto.precio);
+            console.log("Disponible: " + Producto.disponible);
+        }
+
+        añadirProducto(productos);
+
+        console.log("Productos en el carrito:");
+        console.log(carrito);
 
     }else{
-        alert("Por favor ingrese un numero de producto válido (1-4)");
-    }
-
-
-    //Añadir precio del producto elegido al precio final
-
-    switch(respuestaUser){
-        case 1: 
-            precioFinal  = precioFinal + prod1;
-            alert(`El precio final hasta ahora es: ${precioFinal}`);
-            break;
-        case 2:
-            precioFinal = precioFinal + prod2;
-            alert(`El precio final hasta ahora es: ${precioFinal}`);
-            break;
-        case 3:
-            precioFinal = precioFinal + prod3;
-            alert(`El precio final hasta ahora es: ${precioFinal}`);
-            break;
-        case 4:
-            precioFinal = precioFinal + prod4;
-            alert(`El precio final hasta ahora es: ${precioFinal}`);
-            break;
-        default:
-            break;
+        break;
     }
     
-    
-    
-}
+    comprobacion = prompt("Desea continuar? ingrese Si para continuar");
+}while(comprobacion=="si" || comprobacion=="Si" || comprobacion=="SI")
 
 
 
-let producto1 = 200;
-let producto2 = 499;
-let producto3 = 855;
-let producto4 = 350;
-
-
-
-//Cantidad de ciclos del FOR
-let cantidadCompras = parseInt(prompt("Cuantos productos le gustaría comprar? Ingrese un numero entero"));
-
-
-//le da al user la opcion de elegir la cantidad de productos especificada.
-for (let i=0; i<cantidadCompras; i++){
-    //Mostrar y elegir productos con la función
-
-        elegirProducto(producto1, producto2, producto3, producto4);
-
-    //test
-    console.log("hola");
-}
-
-alert(`El precio final es: ${precioFinal}`);
