@@ -1,110 +1,64 @@
+//Proyecto: tienda online
 
+const productos = [];
+const carrito = [];
 
-//Proyecto: Tienda online
+localStorage.setItem("carrito", JSON.stringify(carrito));
 
-
-
-//clase constructora objetos
 
 class Producto {
-    constructor(nombre,color,precio,disponible){
+    constructor(id, nombre,color,precio,disponible, img){
+        this.id = id;
         this.nombre = nombre;
         this.color = color;
         this.precio = precio;
         this.disponible = disponible;
+        this.img = img;
     }
-    sumarIva(){
-        this.precio = this.precio * 1.21;
+    //crea dinamicamente elemento html cada vez que se añade objeto producto al array productos.
+    createHtml(){
+        const newDiv = document.createElement("div");
+        const divContainer= document.getElementById("divContainer");
+        newDiv.classList.add("col-md-3");
+        newDiv.classList.add("card");
+        divContainer.appendChild(newDiv);
+        newDiv.innerHTML = "<img class='card__img2' src=''/></div><div class='card__caption'><button class='boton'>Agregar a carrito</button></div>";
+        //cargar las imagenes
+        const cardImg = document.getElementsByClassName("card__img2");
+        cardImg[this.id].src=this.img;    
     }
-}
-
-//Declaracion objetos con funcion constructora
-
-const producto1 = new Producto("camisa","blanco",525, true);
-
-const producto2 = new Producto ("hoodie", "negro", 730, true);
-
-const producto3 = new Producto ("sweater", "verde", 920, true);
-
-const producto4 = new Producto ("remera", "rojo", 600, true);
-
-
-//Array de objetos
-const productos = [producto1, producto2, producto3, producto4];
-
-//Declaracion arrays y variables
-
-const carrito = [];
-
-
-let precioFinal = 0;
-
-
-
-//Función para agregar productos al carrito y sumar precio final
-function añadirProducto (arrayProductos){
-    let productoElegido = prompt("Ingrese el nombre del producto que desea agregar al carrito").toLowerCase();
-    
-    switch(productoElegido){
-        case "camisa":
-            carrito.push(producto1);
-            console.log("Se añadió el producto al carrito, el precio final hasta ahora es: ");
-            precioFinal = precioFinal + producto1.precio;
-            console.log(precioFinal);
-            break;
-        case "hoodie":
-            carrito.push(producto2);
-            console.log("Se añadió el producto al carrito, el precio final hasta ahora es: ");
-            precioFinal = precioFinal + producto2.precio;
-            console.log(precioFinal);
-            break;
-        case "sweater":
-            carrito.push(producto3);
-            console.log("Se añadió el producto al carrito, el precio final hasta ahora es: ");
-            precioFinal = precioFinal + producto3.precio;
-            console.log(precioFinal);
-            break;
-        case "remera":
-            carrito.push(producto4);
-            console.log("Se añadió el producto al carrito, el precio final hasta ahora es: ");
-            precioFinal = precioFinal + producto4.precio;
-            console.log(precioFinal);
-            break;
+    añadirACarrito()
+    {
+    carrito.push(productos[this.id]);
     }
 }
 
+//declaración de objetos(productos) dentro del array productos.
+productos.push (new Producto(0, "remera","blanco",525, true, "./assets/producto2.png"));
+productos.push (new Producto (1, "hoodie", "negro", 730, true, "./assets/producto2.png"));
+productos.push (new Producto (2, "sweater", "verde", 920, true, "./assets/producto2.png"));
+productos.push (new Producto (3, "remera", "rojo", 600, true, "./assets/producto2.png"));
 
 
-//Interaccion con usuario
 
-let comprobacion = prompt("Agregar productos al carrito de compras. Desea continuar? ingrese Si para continuar");
+//realizar una accion x todos los productos
+for (let i=0; i < productos.length; i++){
+    //evento on load -> funcion para crear elementos html por cada producto
+    productos[i].createHtml();
+}
 
-do {
-    
-    if (comprobacion =="Si" || comprobacion =="si" || comprobacion=="SI"){
-        
-        alert("Los productos se mostrarán a través de la consola");
+//declaración elementos html
+const boton = document.getElementsByClassName("boton");
 
-        console.log("Productos dispobles:")
 
-        for (const Producto of productos){
-            console.log("Nombre: " + Producto.nombre);
-            console.log("Color: " + Producto.color);
-            console.log("Precio: " + Producto.precio);
-            console.log("Disponible: " + Producto.disponible);
-        }
-
-        añadirProducto(productos);
-
-        console.log("Productos en el carrito:");
+//Eventos en click de boton de agregar producto a carrito
+for (let i=0; i<boton.length; i++){
+    boton[i].addEventListener("click", () => 
+    {
+        //Añadir a array "carrito" con metodo push
+        productos[i].añadirACarrito(); 
+        console.log("Producto agregado al carrito correctamente, productos en carrito actualmente:");
         console.log(carrito);
-
-    }else{
-        break;
-    }
-    
-    comprobacion = prompt("Desea continuar? ingrese Si para continuar");
-}while(comprobacion=="si" || comprobacion=="Si" || comprobacion=="SI")
-
-
-
+        boton[i].innerHTML="Agregado al carrito";
+    });
+}

@@ -105,6 +105,18 @@
   color: #f9f5f1;
 }
 
+.test-div {
+  height: 2rem;
+  width: 4rem;
+  border: solid 1px red;
+  display: inline;
+}
+
+.divContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .gallery__row {
   height: 80vh;
   background-color: #f9f5f1;
@@ -121,6 +133,10 @@
 .gallery__row .card__img {
   background-color: grey;
   height: 80%;
+  max-height: 80%;
+}
+.gallery__row .card__img2 {
+  max-height: 80%;
 }
 .gallery__row .card__caption {
   background-color: white;

@@ -15,7 +15,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     
     <!--Javascript-->
-    <script src="index.js"></script>
     <title>Home</title>
 </head>
 
@@ -72,19 +71,21 @@
       </main>
       <!--Row 2 Gallery-->
       <div class="container-fluid">
-        <section class="row gallery__row">
-            <div class="col-md-3 sidebar">Sidebar</div>
-            <div class="col card">
+        <section class="row gallery__row" id="gallery__row">
+            <div class="col-md-2 sidebar">Sidebar</div>
+            <div class="col-md-3 card">
+              <img class="card__img" src=""/>
+              <div class="card__caption">Caption</div>
+            </div>
+            <div class="col-md-3 card">
               <div class="card__img">Img</div>
               <div class="card__caption">Caption</div>
             </div>
-            <div class="col card">
+            <div class="col-md-3 card">
               <div class="card__img">Img</div>
               <div class="card__caption">Caption</div>
             </div>
-            <div class="col card">
-              <div class="card__img">Img</div>
-              <div class="card__caption">Caption</div>
+            <div class="row divContainer" id="divContainer">
             </div>
         </section>
       </div>
