@@ -13,12 +13,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-    
-    <!--Javascript-->
+    <!--Toastify JS-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <title>Home</title>
 </head>
 
-<body>
+<body class="body">
   <!--Nav-->
     <nav class="container-fluid nav navbar-collapse navbar-expand">
       
@@ -49,7 +49,7 @@
               </form>
               
               <a href="#"class="nav__iconCont">
-                <i class="bi bi-cart2"></i>
+                <i class="bi bi-cart2" id="iconCont__cart"></i>
               </a>
               <a href="#" class="nav__iconCont">
                 <i class="bi bi-person-fill"></i>
@@ -57,6 +57,34 @@
             </div>
           </div>
       </nav>
+      <div class="carrito d-none" id="carrito">
+        <div class="carrito__toggle">
+          <h3 class="carrito__toggle--cont">
+            <i class="bi bi-caret-left-fill carrito__toggle--icon" id="carrito__toggle"></i>
+          </h3>
+        </div>
+        <div class="carrito__title text-center">
+          <h5 class="text-center">Carrito</h5>
+        </div>
+        <div class="carrito__row">
+          <div class="carrito__row--item">
+            <img class="carrito__img">
+          </div>
+          <div class="carrito__row--item">
+            this.nombre
+          </div>
+          <div class="carrito__row--item">
+            this.precio
+          </div>
+          <div class="carrito__row--item">
+            <button type="button" class="carrito__boton">Eliminar</button>
+          </div>
+        </div>
+        <div class="carrito__total">
+          <h4 class="justify-content-left">Total</h4>
+          <div class="carrito__precio" id="carritoPrecio">suma precio total</div>
+        </div>
+      </div>
 <!--Nav-->
     
 
@@ -73,6 +101,8 @@
       <div class="container-fluid">
         <section class="row gallery__row" id="gallery__row">
             <div class="col-md-2 sidebar">Sidebar</div>
+            <div class="col divContainer justify-content-around" id="divContainer"></div>
+          <!--
             <div class="col-md-3 card">
               <img class="card__img" src=""/>
               <div class="card__caption">Caption</div>
@@ -85,12 +115,14 @@
               <div class="card__img">Img</div>
               <div class="card__caption">Caption</div>
             </div>
-            <div class="row divContainer" id="divContainer">
-            </div>
+            -->
+            
+
         </section>
       </div>
     
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="index.js"></script>
 </body>
 </html>

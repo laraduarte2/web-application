@@ -2,16 +2,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
 
-.test-div{
-    height:2rem;
-    width:4rem;
-    border:solid 1px red;
-    display:inline;
+.card__caption--info{
+    height:100%;
+    padding-top:1rem;
+    padding-bottom:0.5rem;
+    margin-top:1.5rem;
 }
 
 .divContainer{
     display:flex;
     flex-wrap:wrap;
+}
+
+.body{
+    background-color:$bg-light;
 }
 
 .gallery__row{
@@ -24,7 +28,7 @@
     }
     .card{
         height:50vh;
-        background-color:lightgrey;
+        background-color:white;
         margin:1rem;
 
         &__img{
@@ -36,13 +40,98 @@
             max-height:80%;
         }
         &__caption{
-            background-color:white;
             height:20%;
             display:flex;
             justify-content:center;
             align-content:center;
+            flex-direction:column!important;
         }
 
     }
 
+}
+
+.boton{
+    border-radius:1.5rem;
+    padding:0.5rem;
+    background-color:$dark;
+    color:white;
+    &:hover{
+        background-color:$dark-2;
+    }
+}
+
+.carrito{
+    position:fixed;
+    height:100vh;
+    width:26rem;
+    top:0vh;
+    right:0;
+    z-index:11;
+    background-color:white;
+
+    &__toggle{
+        height:8vh;
+        background-color:$dark;
+        display:flex;
+        align-items: center;
+        align-content:center;
+
+        &--cont{
+            align-self:center;
+        }
+        &--icon{
+            color:white;
+            height:100%;
+            margin:0.3rem;
+            cursor:pointer;
+            &:hover{
+                cursor:pointer;
+                color:lightgrey;
+            }
+        }
+    }
+
+    &__title{
+        margin:1rem;
+    }
+
+    &__row{
+        height:8rem;
+        max-width:100%;
+        display:flex;
+        justify-content:space-between;
+        &--item{
+            height:100%;
+            width:100%;
+        }
+
+    }
+    &__boton{
+        border:none;
+        background-color:white;
+        font-size:0.9rem;
+        text-decoration:underline;
+        &:hover{
+            color:rgb(165, 165, 165);
+        }
+    }
+    &__img{
+        height:90%;
+        width:90%;
+        background-color:grey;
+    }
+    &__total{
+        display:flex;
+        justify-content:space-between;
+    }
+    &__precio{
+        height:100%;
+        width:60%;
+        background-color:grey;
+    }
+}
+
+.display-none{
+    display:none;
 }
