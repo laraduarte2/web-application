@@ -3,8 +3,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:wght@100;300;400;500;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:wght@100;300;400;500;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:wght@100;300;400;500;700;900&display=swap");
+@font-face {
+  font-family: "bilden";
+  src: url("../assets/bilden-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 .nav {
-  background-color: rgb(249, 245, 241);
+  background-color: rgb(249, 246, 241);
   height: 8vh;
   align-items: center;
   align-content: center;
@@ -26,9 +32,12 @@
   padding-top: 1rem;
 }
 .nav__colLeft .nav__title {
-  font-weight: 500;
-  font-size: 1.5rem;
-  margin-top: 0.5rem;
+  font-family: bilden;
+  font-size: 2.5rem;
+  padding-top: 1.2rem;
+  font-weight: 600;
+  vertical-align: baseline;
+  max-height: 100%;
 }
 .nav__colCenter {
   justify-self: center;
@@ -67,7 +76,7 @@
   color: rgb(36, 32, 32);
   text-decoration: none;
 }
-.nav__colRight .nav__iconCont .bi-cart2, .nav__colRight .nav__iconCont .bi-person-fill {
+.nav__colRight .nav__iconCont .bi-cart-fill, .nav__colRight .nav__iconCont .bi-person-fill {
   height: 100%;
   width: 100%;
   align-self: center;
@@ -77,7 +86,7 @@
   justify-content: center;
   align-items: center;
 }
-.nav__colRight .nav__iconCont .bi-cart2:hover, .nav__colRight .nav__iconCont .bi-person-fill:hover {
+.nav__colRight .nav__iconCont .bi-cart-fill:hover, .nav__colRight .nav__iconCont .bi-person-fill:hover {
   color: rgb(128, 90, 74);
   text-decoration: none;
 }
@@ -88,12 +97,16 @@
 
 .header {
   height: 60vh;
-  background-color: rgb(249, 245, 241);
+  background-color: rgb(249, 246, 241);
   padding: 2rem 4rem 2rem 4rem;
 }
 .header__img {
   background-color: lightgrey;
+  background-image: url("../../assets/herosection3.jpg");
+  background-position: 50% 45%;
+  background-size: 100%;
   font-family: "Roboto", sans-serif;
+  text-shadow: -5px 5px 10px rgba(37, 37, 37, 0.664);
 }
 .header__h2 {
   height: 100%;
@@ -102,7 +115,7 @@
   justify-content: center;
   align-content: center;
   align-items: center;
-  color: rgb(249, 245, 241);
+  color: rgb(249, 246, 241);
 }
 
 .card__caption--info {
@@ -118,16 +131,16 @@
 }
 
 .body {
-  background-color: rgb(249, 245, 241);
+  background-color: rgb(249, 246, 241);
 }
 
 .gallery__row {
   height: 80vh;
-  background-color: rgb(249, 245, 241);
+  background-color: rgb(249, 246, 241);
 }
 .gallery__row .sidebar {
-  background-color: lightgray;
   height: 100%;
+  background-color: rgb(243, 239, 227);
 }
 .gallery__row .card {
   height: 50vh;
@@ -136,11 +149,14 @@
 }
 .gallery__row .card__img {
   background-color: grey;
-  height: 80%;
-  max-height: 80%;
+  height: 65%;
+  max-height: 65%;
 }
 .gallery__row .card__img2 {
-  max-height: 80%;
+  max-height: 65%;
+  height: 65%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .gallery__row .card__caption {
   height: 20%;
@@ -151,6 +167,7 @@
 }
 
 .boton {
+  border-style: none;
   border-radius: 1.5rem;
   padding: 0.5rem;
   background-color: rgb(36, 32, 32);
@@ -161,13 +178,17 @@
 }
 
 .carrito {
-  position: fixed;
-  height: 100vh;
+  position: absolute;
+  min-height: 100vh;
+  max-height: auto;
   width: 26rem;
   top: 0vh;
   right: 0;
   z-index: 11;
   background-color: white;
+  box-shadow: -10px 0 10px rgba(128, 125, 125, 0.466);
+  display: flex;
+  flex-direction: column;
 }
 .carrito__toggle {
   height: 8vh;
@@ -201,6 +222,9 @@
 .carrito__row--item {
   height: 100%;
   width: 100%;
+  display: flex;
+  justify-content: right;
+  padding: 0.5rem;
 }
 .carrito__boton {
   border: none;
@@ -212,18 +236,66 @@
   color: rgb(165, 165, 165);
 }
 .carrito__img {
-  height: 90%;
-  width: 90%;
-  background-color: grey;
+  max-height: 100%;
+  -o-object-fit: fill;
+     object-fit: fill;
 }
 .carrito__total {
   display: flex;
   justify-content: space-between;
+  margin: 1rem;
 }
 .carrito__precio {
   height: 100%;
   width: 60%;
-  background-color: grey;
+  right: 0;
+  display: flex;
+  justify-content: right;
+}
+.carrito__botonC {
+  max-height: 4rem;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  margin-bottom: 1.5rem;
+}
+.carrito__botonC--btn {
+  border-style: none;
+  border-radius: 1.5rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  background-color: rgb(36, 32, 32);
+  color: white;
+  margin: 1rem, 1rem, 1.8rem, 1rem;
+}
+.carrito__botonC--btn:hover {
+  background-color: rgb(48, 44, 42);
+}
+
+.bi-trash-fill {
+  color: rgb(36, 32, 32);
+}
+.bi-trash-fill:hover {
+  color: rgb(128, 90, 74);
+}
+
+.boton2 {
+  border-style: none;
+  border-radius: 1.5rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  background-color: rgb(36, 32, 32);
+  color: white;
+  margin: 1rem, 1rem, 1.8rem, 1rem;
+}
+.boton2:hover {
+  background-color: rgb(48, 44, 42);
+}
+
+.moneda {
+  background-color: white;
+  font-size: 1.3rem;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: -10px 5px 10px rgba(128, 125, 125, 0.466);
 }
 
 .display-none {

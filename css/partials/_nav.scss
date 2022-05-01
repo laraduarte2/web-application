@@ -1,6 +1,13 @@
 @import "variables";
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
+@font-face {
+    font-family: 'bilden';
+    src: url('../assets/bilden-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .nav{
     background-color:$bg-light;
     height:8vh;
@@ -26,9 +33,12 @@
         padding-top:1rem;
 
         .nav__title{
-            font-weight:500;
-            font-size: 1.5rem;
-            margin-top:0.5rem;
+            font-family: bilden;
+            font-size: 2.5rem;
+            padding-top:1.2rem;
+            font-weight: 600;
+            vertical-align: baseline;
+            max-height: 100%;
         }
     }
 
@@ -76,7 +86,7 @@
         text-decoration: none;
         
 
-        .bi-cart2{
+        .bi-cart-fill{
             height:100%;
             width:100%;
             align-self:center;
@@ -92,7 +102,7 @@
             
         }
         .bi-person-fill{
-            @extend .bi-cart2;
+            @extend .bi-cart-fill;
             &:hover{
                 color:$md;
                 text-decoration:none;
@@ -101,6 +111,5 @@
     }
 }
 }
-
 
 

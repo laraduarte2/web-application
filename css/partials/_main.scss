@@ -23,8 +23,8 @@
     background-color:$bg-light;
 
     .sidebar{
-    background-color:lightgray;
     height:100%;
+    background-color:rgb(243, 239, 227);
     }
     .card{
         height:50vh;
@@ -33,11 +33,13 @@
 
         &__img{
             background-color:grey;
-            height:80%;
-            max-height:80%;
+            height:65%;
+            max-height:65%;
         }
         &__img2{
-            max-height:80%;
+            max-height:65%;
+            height:65%;
+            object-fit:cover;
         }
         &__caption{
             height:20%;
@@ -52,6 +54,7 @@
 }
 
 .boton{
+    border-style: none;
     border-radius:1.5rem;
     padding:0.5rem;
     background-color:$dark;
@@ -62,13 +65,17 @@
 }
 
 .carrito{
-    position:fixed;
-    height:100vh;
+    position:absolute;
+    min-height:100vh;
+    max-height:auto;
     width:26rem;
     top:0vh;
     right:0;
     z-index:11;
     background-color:white;
+    box-shadow: -10px 0 10px rgba(128, 125, 125, 0.466);
+    display:flex;
+    flex-direction:column;
 
     &__toggle{
         height:8vh;
@@ -104,6 +111,9 @@
         &--item{
             height:100%;
             width:100%;
+            display:flex;
+            justify-content:right;
+            padding:0.5rem;
         }
 
     }
@@ -117,19 +127,66 @@
         }
     }
     &__img{
-        height:90%;
-        width:90%;
-        background-color:grey;
+        max-height:100%;
+        object-fit:fill;
     }
     &__total{
         display:flex;
         justify-content:space-between;
+        margin:1rem;
     }
     &__precio{
         height:100%;
         width:60%;
-        background-color:grey;
+        right:0;
+        display:flex;
+        justify-content:right;
     }
+    &__botonC{
+        max-height:4rem;
+        display:flex;
+        justify-content:center;
+        justify-items:center;
+        margin-bottom:1.5rem;
+        &--btn{
+            border-style: none;
+            border-radius:1.5rem;
+            padding:0.5rem 1rem 0.5rem 1rem;
+            background-color:$dark;
+            color:white;
+            margin: 1rem, 1rem, 1.8rem, 1rem;
+        &:hover{
+            background-color:$dark-2;
+        }
+        }
+    }
+}
+
+.bi-trash-fill{
+    color:$dark;
+    &:hover{
+        color:$md;
+    }
+}
+
+.boton2{
+        border-style: none;
+        border-radius:1.5rem;
+        padding:0.5rem 1rem 0.5rem 1rem;
+        background-color:$dark;
+        color:white;
+        margin: 1rem, 1rem, 1.8rem, 1rem;
+    &:hover{
+        background-color:$dark-2;
+    }
+}
+
+.moneda{
+    background-color:white;
+    font-size:1.3rem;
+    border-radius:1rem;
+    padding:1rem;
+    box-shadow: -10px 5px 10px rgba(128, 125, 125, 0.466);
 }
 
 .display-none{

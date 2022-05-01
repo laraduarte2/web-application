@@ -9,7 +9,11 @@
 
     &__img{
         background-color:lightgrey;
+        background-image: url("../../assets/herosection3.jpg");
+        background-position: 50% 45%;
+        background-size:100%;
         font-family: 'Roboto', sans-serif;
+        text-shadow: -5px 5px 10px rgba(37, 37, 37, 0.664);
     }
     &__h2{
         height:100%;
